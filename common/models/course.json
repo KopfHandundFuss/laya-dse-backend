@@ -1,0 +1,63 @@
+{
+  "name": "Course",
+  "plural": "courses",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "id": true,
+      "required": true
+    },
+    "category": {
+      "type": "string",
+      "required": true
+    },
+    "abstract": {
+      "type": "string"
+    },
+    "locked": {
+      "type": "boolean",
+      "default": false
+    },
+    "createDate": {
+      "type": "date",
+      "default": "$now"
+    },
+    "startDate": {
+      "type": "date"
+    },
+    "endDate": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "author": {
+      "type": "belongsTo",
+      "model": "Account",
+      "foreignKey": ""
+    },
+    "students": {
+      "type": "hasMany",
+      "model": "Account",
+      "foreignKey": "",
+      "through": "Enrollment"
+    },
+    "topics": {
+      "type": "hasMany",
+      "model": "CourseTopic",
+      "foreignKey": ""
+    },
+    "quizzes": {
+      "type": "hasMany",
+      "model": "CourseQuiz",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,5 @@
+Build:
+  only:
+    - master
+  script:
+    - sudo systemctl restart laya-dse-backend.service

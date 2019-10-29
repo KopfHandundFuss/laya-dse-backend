@@ -1,0 +1,75 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "Account": {
+    "dataSource": "sqlite",
+    "public": true
+  },
+  "AccessToken": {
+    "dataSource": "sqlite",
+    "public": false,
+    "relations": {
+      "account": {
+        "type": "belongsTo",
+        "model": "Account",
+        "foreignKey": "accountId"
+      }
+    }
+  },
+  "User": {
+    "dataSource": "sqlite",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "sqlite",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "sqlite",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "sqlite",
+    "public": false
+  },
+  "storage": {
+    "dataSource": "files",
+    "public": true
+  },
+  "Course": {
+    "dataSource": "sqlite",
+    "public": true
+  },
+  "Enrollment": {
+    "dataSource": "sqlite",
+    "public": true
+  },
+  "CourseTopic": {
+    "dataSource": "sqlite",
+    "public": true
+  },
+  "CourseTopicContent": {
+    "dataSource": "sqlite",
+    "public": true
+  },
+  "CourseQuiz": {
+    "dataSource": "sqlite",
+    "public": true
+  },
+  "CourseQuizContent": {
+    "dataSource": "sqlite",
+    "public": true
+  }
+}
